@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b28d1d3-5935-4fcc-a45b-ebfa12f9b422" name="Changes" comment="task1_final">
-      <change afterPath="$PROJECT_DIR$/src/Журавлёв/Дмитрий/Java/Task2.java" afterDir="false" />
+    <list default="true" id="8b28d1d3-5935-4fcc-a45b-ebfa12f9b422" name="Changes" comment="task2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Журавлёв/Дмитрий/Java/Task2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Журавлёв/Дмитрий/Java/Task2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -62,7 +63,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668333059010</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="task2">
+      <created>1668336218446</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1668336218446</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -79,7 +87,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="task1" />
     <MESSAGE value="task1_final" />
-    <option name="LAST_COMMIT_MESSAGE" value="task1_final" />
+    <MESSAGE value="task2" />
+    <option name="LAST_COMMIT_MESSAGE" value="task2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
