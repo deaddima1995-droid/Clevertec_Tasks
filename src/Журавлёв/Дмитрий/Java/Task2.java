@@ -1,7 +1,5 @@
 package Журавлёв.Дмитрий.Java;
 
-import java.util.ArrayList;
-
 public class Task2 {
     public static void main(String[] args) {
 
@@ -9,12 +7,7 @@ public class Task2 {
 
 }
 
-class AutoPark {
-    ArrayList<Car> cars = new ArrayList<>();
-
-}
-
-abstract class Car {
+abstract class Transport {
     private final int year;
     private final Model model;
     private final Brand brand;
@@ -24,7 +17,7 @@ abstract class Car {
 
 
 
-    public Car(int year, Fuel fuel, Model model, Brand brand, int fuelFlow) {
+    public Transport(int year, Fuel fuel, Model model, Brand brand, int fuelFlow) {
         this.year = year;
         this.fuel = fuel;
         this.model = model;
@@ -40,19 +33,25 @@ abstract class Car {
     }
 }
 
-class Cargo extends Car implements TransportCargo {
+abstract class Cargo extends Transport implements TransportCargo {
     private final int cargoVolume;
     private final int tonnage;
 
     private final Body body;
-    private final CargoOfTruck cargoOfTruck;
+    public CargoTruck cargoTruck = null;
 
-    public Cargo(int year, Fuel fuel, Model model, Brand brand, int fuelFlow, int cargoVolume, int tonnage, Body body, CargoOfTruck cargoOfTruck) {
+    public Cargo(int year, Fuel fuel, Model model, Brand brand, int fuelFlow, int cargoVolume, int tonnage, Body body) {
         super(year, fuel, model, brand, fuelFlow);
         this.cargoVolume = cargoVolume;
         this.tonnage = tonnage;
         this.body = body;
-        this.cargoOfTruck = cargoOfTruck;
+    }
+}
+
+class Truck extends Cargo{
+
+    public Truck(int year, Fuel fuel, Model model, Brand brand, int fuelFlow, int cargoVolume, int tonnage, BodiesOfTruck body) {
+        super(year, fuel, model, brand, fuelFlow, cargoVolume, tonnage, body);
     }
 
     @Override
@@ -62,7 +61,7 @@ class Cargo extends Car implements TransportCargo {
 }
 
 
-class Passenger extends Car implements TransportPassenger {
+class Passenger extends Transport implements TransportPassenger {
     private final int passengerCapacity;
 
     public Passenger(int year, Fuel fuel, Model model, Brand brand, int fuelFlow, int passengerCapacity) {
@@ -72,11 +71,11 @@ class Passenger extends Car implements TransportPassenger {
 
     @Override
     public void disinfectSalon() {
-
+        System.out.println("Произведена дезинфекция");
     }
 }
 
-class CargoAndPassenger extends Car implements TransportCargo, TransportPassenger {
+class CargoAndPassenger extends Transport implements TransportCargo, TransportPassenger {
     private final int cargoVolume;
     private final int tonnage;
     private final int passengerCapacity;
@@ -102,6 +101,10 @@ class CargoAndPassenger extends Car implements TransportCargo, TransportPassenge
 interface Body {
 
 }
+
+enum BodiesOfTruck implements Body {
+
+}
 interface TransportCargo {
     public void sealCargo();
 }
@@ -109,8 +112,30 @@ interface TransportPassenger {
     public void disinfectSalon();
 }
 
-enum CargoOfTruck {
+interface CargoTruck {
+
+}
+
+
+enum Trailer {
+    tent,
+    refrigerator,
+    tanker;
+}
+
+interface CargoOfTrailer extends CargoTruck{
+
+}
+
+interface RefrigeratorOfTruck {
+
+}
+
+enum ManufacturedGoods implements CargoOfTrailer{
     manufacturedGoods;
+}
+enum PerishableGoods implements RefrigeratorOfTruck {
+    refrigerator;
 }
 
 enum Fuel {
@@ -120,15 +145,9 @@ enum Fuel {
 }
 
 interface Model {
-
-}
-
-enum AudiModel implements Model {
-
 }
 
 interface Brand {
-
 }
 
 
